@@ -375,7 +375,7 @@ Arduino/libraries
 .jdks
 .vscode/extensions
 .config/chromium
-.config/Code
+#.config/Code
 .config/GIMP
 .config/GnomicStudios
 .config/JetBrains/IntelliJIdea*
