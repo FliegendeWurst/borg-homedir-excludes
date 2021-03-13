@@ -6,14 +6,29 @@
 # Version: 2015-08-30
 #
 # Extended and modified by FliegendeWurst <https://github.com/FliegendeWurst/rsync-homedir-excludes>
-# Update: 2020-05-06
+# Update: 2021-03-13
 
+###########################
+# CHECK if you need these #
+###########################
+.local/share/okular
+
+.config/JetBrains
+.local/share/JetBrains
+.config/Google/AndroidStudio*
+.local/share/Google/AndroidStudio*
+
+.config/bless
+.config/GoogleAPI
+
+.config/gtk-2.0
 
 ###############################################
 # directories, probably not worth a backup    #
 # (comment the files you do need)             #
 ###############################################
 
+*/node_modules
 .gvm
 .grails
 .grails_history
@@ -50,8 +65,9 @@ Trash
 # Cached packages lists:
 .aptitude
 
-# Node Package Manager cache
+# Node Package Manager
 .npm
+.local/share/npm
 
 #Flash-specific:
 
@@ -140,6 +156,9 @@ Thumbs.db
 .mozilla/firefox/*/storage/temporary
 .mozilla/firefox/*/datareporting
 .mozilla/firefox/Crash Reports
+.mozilla/firefox/*/gmp-gmpopenh264
+.mozilla/firefox/*/sessionstore-backups
+.mozilla/firefox/*/gmp
 
 #SeaMonkey-specific (see also Profile folder):
 
@@ -163,6 +182,7 @@ Thumbs.db
 # Thunderbird
 .thunderbird/*/Cache
 .thunderbird/*/crashes
+.thunderbird/*/datareporting
 .thunderbird/Crash Reports
 
 #Opera-specific (related question on Superuser.com: Is documentation available on files and directories in the Opera profile folder?):
@@ -244,6 +264,9 @@ Thumbs.db
 *.nobackup
 
 # other temporary files
+*.aux
+*.out
+*.toc
 .cache
 */.cache
 .ccache
@@ -258,6 +281,9 @@ Thumbs.db
 */GPUCache
 */Code Cache
 */CachedExtensions
+*/CachedExtensionVSIXs
+*/exthost Crash Reports
+*/CachedData
 */VideoDecodeStats
 */CryptnetUrlCache
 */recompileMc
@@ -293,11 +319,10 @@ Thumbs.db
 # list architectures compiled to here
 */target/asmjs-unknown-*
 */target/wasm32-unknown-unknown
-*/target/x86*-*-*-*
+*/target/x86*
 
 # npm / javascript
 .emscripten*
-*/node_modules
 
 # python
 *__pycache__*
@@ -308,7 +333,6 @@ Thumbs.db
 
 # c
 *.o
-*.so
 
 # java
 .gradle
@@ -373,28 +397,29 @@ Arduino/libraries
 .IdeaIC*
 .IntelliJIdea*
 .jdks
-.vscode/extensions
+.vscode*/extensions
 .config/chromium
 #.config/Code
 .config/GIMP
 .config/GnomicStudios
-.config/JetBrains/IntelliJIdea*
 .config/.mono/certs
-.config/skypeforlinux
 .local/share/dolphin
+.local/share/Google/consentOptions
+
+# symlinks
+.steam
+.steampath
+.steampid
 
 # useless caches and temp. storage
+*/shadercache
 .bitcoin/blocks
 .bitcoin/chainstate
 .GridcoinResearch
 .ipfs/blocks
 .Mathematica
-.minecraft/assets
-.minecraft/bin
 .minecraft/launcher_log.txt
-.minecraft/libraries
 .minecraft/logs
-.minecraft/*natives*
 .mitmproxy
 .mono
 .nv
@@ -402,8 +427,6 @@ Arduino/libraries
 .oracle_jre_usage
 .paradoxlauncher
 .rnd
-.steam
-.steampid
 .torrench
 .ts3client/cache
 .ts3client/crashdumps
@@ -412,18 +435,25 @@ Arduino/libraries
 .Wolfram/Logs
 .zcomp*
 .zplugin
+# Electron applications put their cache in .config :(
 .config/cef_user_data
 .config/discord*
 .config/Electron
 .config/etcher-electron
 .config/fzf
+.config/glib-2.0
 .config/ibus
 .config/libreoffice
+.config/matplotlib
+.config/Microsoft/Microsoft Teams
+.config/Microsoft Teams - Preview
 .config/obs-studio/logs
 .config/obs-studio/profiler_data
 .config/Riot/*Cache
 .config/ShipLord
-.config/unity3d
+.config/skypeforlinux
+.config/teams
+.config/Trilium Notes
 .config/VirtualBox
 .config/Wire
 .local/bin
@@ -440,22 +470,29 @@ Arduino/libraries
 .local/share/heroku
 .local/share/icons
 .local/share/JetBrains/IntelliJIdea*
+.local/share/JOSM/plugins/javafx
 .local/share/keybase/*cache
 .local/share/klipper
 .local/share/knewstuff3
 .local/share/kxmlgui5
+.local/share/lutris/runtime
 .local/share/man
 .local/share/marble/cache
 .local/share/marble/maps
 .local/share/mime
 .local/share/npm
 .local/share/plasma/plasmoids
+.local/share/Ripcord/webcache
 .local/share/sddm
+.local/share/Steam/appcache
+.local/share/Steam/config/htmlcache
+.local/share/Steam/steam/cached
 .local/share/steamtricks
 .local/share/supertuxkart
 .local/share/TeamSpeak 3
 .local/share/teamviewer*
 .local/share/Telegram*
+.local/share/trilium*/sessions
 .local/share/vulkan
 .local/share/webkitgtk
 .local/share/xorg
@@ -463,21 +500,23 @@ Arduino/libraries
 # logs
 */logs/*.log
 */logs/*.log.gz
+.bitcoin/debug.log
+.config/*/logs
+.local/share/trilium*/log/
 
-# game data (maybe keep?, depends)
-.factorio/scenarios
+# game data
+#.factorio/scenarios
 #.minecraft/server-resource-packs
 .technic/assets
 .technic/cache
 #.local/share/Steam
 .local/share/Steam/steamapps/compatdata
-.local/share/Steam/steamapps/common/Proton *.*
+.local/share/Steam/steamapps/common/Proton*
 */dynmap
-*/journeymap
-*/mapwriter_mp_worlds
 
 .tixati
 .config/torrench
 .local/share/data/qBittorrent
 .local/share/torbrowser
+.local/share/tor-browser
 Vaults
