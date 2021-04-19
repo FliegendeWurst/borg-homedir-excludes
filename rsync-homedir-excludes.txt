@@ -21,6 +21,8 @@
 .config/bless
 .config/GoogleAPI
 
+.local/share/Steam
+
 .config/gtk-2.0
 
 ###############################################
@@ -509,7 +511,6 @@ Arduino/libraries
 #.minecraft/server-resource-packs
 .technic/assets
 .technic/cache
-#.local/share/Steam
 .local/share/Steam/steamapps/compatdata
 .local/share/Steam/steamapps/common/Proton*
 */dynmap
